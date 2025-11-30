@@ -1,13 +1,30 @@
-// class Storage {}
+class Storage {
+  #items = [];
+  constructor(items) {
+    this.#items = items;
+  }
 
-// const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
-// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+  getItems() {
+    return this.#items;
+  }
 
-// storage.addItem('Droid');
-// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+  addItem(newItem) {
+    this.#items.push(newItem);
+  }
 
-// storage.removeItem('Prolonger');
-// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+  removeItem(itemToRemove) {
+    this.#items = this.#items.filter(item => item !== itemToRemove);
+  }
+}
 
-// storage.removeItem('Scaner');
-// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+
+storage.addItem('Droid');
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+
+storage.removeItem('Prolonger');
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+storage.removeItem('Scaner');
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
